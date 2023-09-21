@@ -1,40 +1,36 @@
-<h1>vue-pure-admin精简版（非国际化版本）</h1>
+# zze Admin go
 
-[![license](https://img.shields.io/github/license/pure-admin/vue-pure-admin.svg)](LICENSE)
+> 注：本项目基于 <https://github.com/pure-admin/pure-admin-thin> 二开。
 
-**中文** | [English](./README.en-US.md)
+## 功能
 
-## 介绍
+本项目主要用来作为新项目启动时的模板，如果你想要使用 Golang 来新开发一个后台管理系统，那么选我就对了。
 
-精简版是基于 [vue-pure-admin](https://github.com/pure-admin/vue-pure-admin) 提炼出的架子，包含主体功能，更适合实际项目开发，打包后的大小在全局引入 [element-plus](https://element-plus.org) 的情况下仍然低于 `2.3MB`，并且会永久同步完整版的代码。开启 `brotli` 压缩和 `cdn` 替换本地库模式后，打包大小低于 `350kb`
+- 已实现后台管理系统最基础的用户管理、角色管理、权限管理，基于它来开发可以让你可以更聚焦业务的实现。
+- 选用了相对成熟、稳定、功能齐全的的框架，后端基于 **[GoFrame](https://goframe.org/pages/viewpage.action?pageId=1114119)**
+  ，前端基于 **[PureAdmin](https://yiming_chang.gitee.io/pure-admin-doc/pages/introduction/)**；
+- 支持一套权限管理逻辑控制前后端路由、按钮级别权限；
 
-## 版本选择
+## 预览地址
 
-当前是非国际化版本，如果您需要国际化版本 [请点击](https://github.com/pure-admin/pure-admin-thin/tree/i18n)
+[点我预览](http://admin.zze.xyz)
 
-## 配套视频
+- 管理员：`admin`，密码：`devops.zze`；
+- 测试账号：`test`，密码：`devops.zze`；
 
-- [点我查看教程](https://www.bilibili.com/video/BV1kg411v7QT)
-- [点我查看 UI 设计](https://www.bilibili.com/video/BV17g411T7rq)
+## 技术栈
 
-## 配套保姆级文档
+- 语言：Golang、Typescript；
+- 后端：GoFrame、Casbin；
+- 前端：Vue3、Vite、Element-Plus、TypeScript、Pinia 等；
 
-- [查看文档](https://yiming_chang.gitee.io/pure-admin-doc)
+## 项目运行
 
-## 预览
+```
+pnpm install
+pnpm dev
+```
 
-- [查看预览](https://pure-admin-thin.netlify.app/#/login)
+## 后端项目
 
-## 维护者
-
-[xiaoxian521](https://github.com/xiaoxian521)
-
-## ⚠️ 注意
-
-- 精简版不接受任何 `issues` 和 `pr`，如果有问题请到完整版 [issues](https://github.com/pure-admin/vue-pure-admin/issues/new/choose) 去提，谢谢！
-
-## 许可证
-
-原则上不收取任何费用及版权，可商用，不过如需二次开源（比如用此平台二次开发并开源，要求前端代码必须开源免费）请联系作者获取许可！（免费，走个记录而已）
-
-[MIT © 2020-present, pure-admin](./LICENSE)
+本仓库是前端项目，对应后端项目地址为：<https://github.com/zze326/zze-admin-go>。
