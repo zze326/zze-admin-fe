@@ -5,7 +5,7 @@ export type Model = {
   name: string;
   rank: number;
   parentId: number;
-  createdAt: string;
+  updatedAt: string;
 };
 
 /** 新增部门 */

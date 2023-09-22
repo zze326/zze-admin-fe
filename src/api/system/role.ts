@@ -5,7 +5,7 @@ export type Model = {
   name: string;
   code: string;
   permission: number[];
-  createdAt: string;
+  updatedAt: string;
 };
 
 /** 新增角色 */

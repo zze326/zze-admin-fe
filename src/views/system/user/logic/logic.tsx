@@ -60,8 +60,8 @@ export const useLogic = () => {
       prop: "email"
     },
     {
-      label: "创建时间",
-      prop: "createdAt"
+      label: "更新时间",
+      prop: "updatedAt"
     },
     {
       label: "是否启用",

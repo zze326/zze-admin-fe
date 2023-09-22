@@ -9,7 +9,7 @@ export type Model = {
   enabled: boolean;
   roleIds: number[];
   deptId: number;
-  createdAt: string;
+  updatedAt: string;
 };
 
 /** 新增用户 */

@@ -26,8 +26,8 @@ export const useLogic = () => {
       minWidth: 80
     },
     {
-      label: "创建时间",
-      prop: "createdAt"
+      label: "更新时间",
+      prop: "updatedAt"
     },
     {
       label: "操作",
