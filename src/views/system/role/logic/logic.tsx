@@ -38,6 +38,10 @@ export const useLogic = () => {
       prop: "code"
     },
     {
+      label: "创建时间",
+      prop: "createdAt"
+    },
+    {
       label: "操作",
       fixed: "right",
       width: 180,

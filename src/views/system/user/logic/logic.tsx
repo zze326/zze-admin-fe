@@ -56,6 +56,10 @@ export const useLogic = () => {
       prop: "email"
     },
     {
+      label: "创建时间",
+      prop: "createdAt"
+    },
+    {
       label: "是否启用",
       prop: "enabled",
       hide: !hasAuth(Permiss.UPT_ENABLE),

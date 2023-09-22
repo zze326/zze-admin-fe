@@ -30,7 +30,7 @@ const {
     <template #header>
       <div class="card-header flex justify-between">
         <div class="relative top-1">
-          <span v-if="store.current" class="font-medium">
+          <span v-if="store?.current?.name" class="font-medium">
             {{ store.current.name }}角色权限
           </span>
           <span v-else class="font-medium">当前未选择角色</span>
@@ -40,7 +40,7 @@ const {
           :icon="useRenderIcon(Save)"
           @click="handleSavePermission"
           type="primary"
-          :disabled="!store.current"
+          :disabled="!store?.current?.name"
         >
           保存
         </el-button>
