@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import type { ElTree } from "element-plus";
+import ElTreeLine from "@/components/ReTreeLine";
 import { useLogic } from "./logic/permission";
 import Save from "@iconify-icons/ri/save-3-fill";
 import { useRenderIcon } from "@/components/ReIcon/src/hooks";
@@ -63,8 +64,14 @@ const {
       :default-checked-keys="store.current?.permission"
       node-key="id"
     >
-      <template #default="{ data }">
-        <span>{{ data.title }}</span>
+      <template v-slot:default="{ node }">
+        <el-tree-line :node="node" :showLabelLine="true">
+          <template v-slot:node-label>
+            <span class="text-sm">
+              {{ node.data.title }}
+            </span>
+          </template>
+        </el-tree-line>
       </template>
     </el-tree>
   </el-card>
