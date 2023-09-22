@@ -5,9 +5,10 @@ export type Model = {
   name: string;
   code: string;
   permission: number[];
+  createdAt: string;
 };
 
-/** 添加角色 */
+/** 新增角色 */
 export const addApi = (data: Partial<Model>) =>
   http.request<Resp<null>>("post", "/role", { data });
 

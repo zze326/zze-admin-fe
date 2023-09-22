@@ -7,10 +7,12 @@ export type Model = {
   phone: string;
   email: string;
   enabled: boolean;
-  role: number[];
+  roleIds: number[];
+  deptId: number;
+  createdAt: string;
 };
 
-/** 添加用户 */
+/** 新增用户 */
 export const addApi = (data: Partial<Model>) =>
   http.request<Resp<null>>("post", "/user", { data });
 

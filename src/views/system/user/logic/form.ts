@@ -6,6 +6,7 @@ import { FormDataProps, ResetPwdFormDataProps } from "./types";
 export const rules = reactive(<FormRules>{
   username: [{ required: true, message: "用户名为必填项", trigger: "blur" }],
   realName: [{ required: true, message: "真实姓名为必填项", trigger: "blur" }],
+  deptId: [{ required: true, message: "所属部门为必填项", trigger: "blur" }],
   phone: [
     { pattern: /^1\d{10}$/, message: "电话号码格式不正确", trigger: "blur" }
   ],
@@ -24,8 +25,9 @@ export const initValues = (row?: FormDataProps): FormDataProps => {
     realName: row?.realName ?? "",
     phone: row?.phone ?? "",
     email: row?.email ?? "",
+    deptId: row?.deptId ?? null,
     enabled: row?.enabled ?? false,
-    role: row?.role ?? []
+    roleIds: row?.roleIds ?? []
   };
 };
 

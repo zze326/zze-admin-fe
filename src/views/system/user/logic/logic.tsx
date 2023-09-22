@@ -15,15 +15,19 @@ import {
   uptEnabled,
   uptPassword
 } from "@/api/system/user";
+import { getLstApi as getDeptLstApi } from "@/api/system/dept";
 import { getLstApi as getRoleLstApi } from "@/api/system/role";
 import { useCommonLogic } from "@/utils/common";
 import { ReqPagerData } from "@/utils/pager";
 import { PaginationProps } from "@pureadmin/table";
+import { handleTree } from "@/utils/tree";
 
 export const useLogic = () => {
   const formRef = ref();
   const loading = ref(false);
   const dataList = ref([]);
+  const deptTreeLoading = ref(false);
+  const deptTreeList = ref([]);
   const switchLoadMap = ref({});
   const { switchStyle } = useCommonLogic();
 
@@ -95,7 +99,10 @@ export const useLogic = () => {
         pagination.currentPage,
         pagination.pageSize,
         queryFormData.search,
-        { enabled: queryFormData.enabled }
+        {
+          enabled: queryFormData.enabled,
+          deptId: queryFormData.deptId
+        }
       )
     );
     dataList.value = data.list;
@@ -146,7 +153,8 @@ export const useLogic = () => {
       title: `${title}用户`,
       props: {
         formData: initValues(row),
-        roleList: res.data.list
+        roleList: res.data.list,
+        deptTreeList
       },
       width: "46%",
       draggable: true,
@@ -238,7 +246,7 @@ export const useLogic = () => {
     onSearch();
   };
 
-  const queryFormData = reactive({ search: "", enabled: null });
+  const queryFormData = reactive({ search: "", enabled: null, deptId: null });
 
   const handleDelete = async (row: FormDataProps) => {
     const res = await delApi(row.id);
@@ -250,9 +258,22 @@ export const useLogic = () => {
     onSearch();
   };
 
+  const getDeptTree = async () => {
+    deptTreeLoading.value = true;
+    const res = await getDeptLstApi(null);
+    deptTreeList.value = handleTree(res.data.list);
+    deptTreeLoading.value = false;
+  };
+
+  const onDeptTreeSelect = ({ id, selected }) => {
+    queryFormData.deptId = selected ? id : null;
+    onSearch();
+  };
+
   onMounted(() => {
     if (!hasAuth(Permiss.READ)) return;
     onSearch();
+    getDeptTree();
   });
 
   return {
@@ -261,10 +282,13 @@ export const useLogic = () => {
     columns,
     queryFormData,
     pagination,
+    deptTreeLoading,
+    deptTreeList,
     openDialog,
     onSearch,
     resetForm,
     handleDelete,
-    openResetPwdDialog
+    openResetPwdDialog,
+    onDeptTreeSelect
   };
 };

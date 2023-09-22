@@ -17,7 +17,7 @@ export type Model = {
   auths?: string[];
 };
 
-/** 添加权限 */
+/** 新增权限 */
 export const addApi = (data: Partial<Model>) =>
   http.request<Resp<null>>("post", "/permission", { data });
 

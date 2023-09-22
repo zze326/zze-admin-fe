@@ -133,7 +133,7 @@ defineExpose({ getRef });
         :value="12"
         :xs="24"
         :sm="24"
-        v-if="[EType.DIR].includes(formData.type)"
+        v-if="[EType.DIR, EType.MENU].includes(formData.type)"
       >
         <el-form-item label="图标" prop="icon">
           <IconSelect v-model="formData.icon" />

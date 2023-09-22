@@ -109,6 +109,8 @@ export const useLogic = () => {
   const resetForm = formEl => {
     if (!formEl) return;
     formEl.resetFields();
+    queryFormData.enabled = null;
+    queryFormData.search = "";
     store.current = {};
     onSearch();
   };

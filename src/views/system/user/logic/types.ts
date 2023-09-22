@@ -1,5 +1,6 @@
 import { Model } from "@/api/system/user";
 import { Model as RoleModel } from "@/api/system/role";
+import { Model as DeptModel } from "@/api/system/dept";
 type FormDataProps = Partial<Model>;
 
 type ResetPwdFormDataProps = {
@@ -10,6 +11,7 @@ type ResetPwdFormDataProps = {
 interface FormProps {
   formData: FormDataProps;
   roleList: RoleModel[];
+  deptTreeList: DeptModel[];
 }
 
 interface ResetPwdFormProps {
