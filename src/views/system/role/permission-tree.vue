@@ -26,7 +26,7 @@ const {
 </script>
 
 <template>
-  <el-card shadow="never" class="h-[100%]">
+  <el-card shadow="never">
     <template #header>
       <div class="card-header flex justify-between">
         <div class="relative top-1">
@@ -46,6 +46,7 @@ const {
         </el-button>
       </div>
     </template>
+
     <el-input
       class="mb-4"
       v-model="query"
@@ -53,26 +54,28 @@ const {
       clearable
       @input="onQueryChanged"
     />
-    <el-tree
-      ref="treeRef"
-      :data="dataList"
-      :props="dataProps"
-      :empty-text="hasAuth(Permiss.READ) ? '没有数据' : '权限不足'"
-      show-checkbox
-      :filter-node-method="filterMethod"
-      default-expand-all
-      :default-checked-keys="store.current?.permission"
-      node-key="id"
-    >
-      <template v-slot:default="{ node }">
-        <el-tree-line :node="node" :showLabelLine="true">
-          <template v-slot:node-label>
-            <span class="text-sm">
-              {{ node.data.title }}
-            </span>
-          </template>
-        </el-tree-line>
-      </template>
-    </el-tree>
+    <div class="overflow-y-scroll" style="height: calc(70vh - 10px)">
+      <el-tree
+        ref="treeRef"
+        :data="dataList"
+        :props="dataProps"
+        :empty-text="hasAuth(Permiss.READ) ? '没有数据' : '权限不足'"
+        show-checkbox
+        :filter-node-method="filterMethod"
+        default-expand-all
+        :default-checked-keys="store.current?.permission"
+        node-key="id"
+      >
+        <template v-slot:default="{ node }">
+          <el-tree-line :node="node" :showLabelLine="true">
+            <template v-slot:node-label>
+              <span class="text-sm">
+                {{ node.data.title }}
+              </span>
+            </template>
+          </el-tree-line>
+        </template>
+      </el-tree>
+    </div>
   </el-card>
 </template>
