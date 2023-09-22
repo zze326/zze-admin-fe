@@ -220,7 +220,7 @@ export const useLogic = () => {
       message(res.message, { type: "error" });
       return;
     }
-    message(`您删除了权限标题为 ${row.name} 的这条数据`, { type: "success" });
+    message(`您删除了权限标题为 ${row.title} 的这条数据`, { type: "success" });
     onSearch();
   };
 

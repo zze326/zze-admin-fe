@@ -133,7 +133,7 @@ const {
             </el-button>
             <Auth :value="Permiss.DEL">
               <el-popconfirm
-                :title="`是否确认删除部门标题为 ${row.title} 的这条数据`"
+                :title="`是否确认删除部门名称为 ${row.name} 的这条数据`"
                 @confirm="handleDelete(row)"
               >
                 <template #reference>
