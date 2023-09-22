@@ -9,7 +9,7 @@ export const rules = reactive(<FormRules>{
 
 export const initValues = (row?: FormItemProps): FormItemProps => {
   return {
-    parentId: row.parentId ?? 0,
+    parentId: row?.parentId ?? 0,
     name: row?.name ?? "",
     rank: row?.rank ?? 0
   };
