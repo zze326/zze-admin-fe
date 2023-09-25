@@ -33,6 +33,7 @@ const {
     v-auth="Permiss.READ"
     :inline="true"
     :model="queryFormData"
+    @submit.prevent
     class="search-form bg-bg_color w-[99/100] pl-8 pt-[12px]"
   >
     <el-form-item label="角色名称/代码：" prop="search">
