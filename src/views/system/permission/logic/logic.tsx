@@ -120,8 +120,11 @@ export const useLogic = () => {
   const openDialog = async (title = "新增", row?: FormItemProps) => {
     const { data } = await getLstApi(null);
     if (title === "编辑" && row) {
-      const dst = data.list.find(item => item.id === row.id);
-      Object.assign(dst, { disabled: true });
+      data.list
+        .filter(item => item.id === row.id || item.parentId === row.id)
+        .forEach(item => {
+          Object.assign(item, { disabled: true });
+        });
     }
 
     addDialog({
