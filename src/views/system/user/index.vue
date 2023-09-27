@@ -113,6 +113,8 @@ const {
             :empty-text="hasAuth(Permiss.READ) ? '暂无数据' : '权限不足'"
             :columns="dynamicColumns"
             :pagination="pagination"
+            @page-size-change="onSearch"
+            @page-current-change="onSearch"
             :paginationSmall="size === 'small' ? true : false"
             :header-cell-style="{
               background: 'var(--el-fill-color-light)',
